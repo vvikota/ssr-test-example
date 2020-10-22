@@ -3,6 +3,7 @@ var webpack = require('webpack')
 var nodeExternals = require('webpack-node-externals')
 
 var browserConfig = {
+  mode: 'development',
   entry: './src/client/index.js',
   output: {
     path: path.resolve(__dirname, 'public'),
@@ -11,7 +12,11 @@ var browserConfig = {
   },
   module: {
     rules: [
-      { test: /\.(js)$/, use: 'babel-loader' },
+      { 
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: 'babel-loader' 
+      },
     ]
   },
   plugins: [
@@ -22,6 +27,7 @@ var browserConfig = {
 }
 
 var serverConfig = {
+  mode: 'development',
   entry: './src/server/index.js',
   target: 'node',
   externals: [nodeExternals()],
@@ -32,7 +38,11 @@ var serverConfig = {
   },
   module: {
     rules: [
-      { test: /\.(js)$/, use: 'babel-loader' }
+      { 
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: 'babel-loader' 
+      },
     ]
   },
   plugins: [
