@@ -1,8 +1,8 @@
 import express from "express";
 import cors from "cors";
-import React from "react";
 import {serverRenderer} from "./render";
 import { data }  from "../shared/data";
+import createStore from "../shared/store";
 
 const app = express();
 
@@ -10,9 +10,8 @@ app.use(cors());
 app.use(express.static("public"));
 
 app.get("*", (req, res, next) => {
-
-  const context = {};
-  const content = serverRenderer(req, context, data);
+  const store = createStore();
+  const content = serverRenderer(req, store, data);
 
   res.send(content)
 });
