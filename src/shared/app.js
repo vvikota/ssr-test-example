@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import {data} from './data';
 
+import News from "./news.jsx";
 import Catalog from "./catalog.jsx";
 import Contact from "./contact.jsx";
 import Reviews from "./reviews.jsx";
@@ -18,7 +18,12 @@ class App extends Component{
         <Switch>
 
            <Route 
-            path='/catalog'
+             path='/news'
+             render={(props) => <News />}
+           />
+
+           <Route 
+             path='/catalog'
              render={(props) => <Catalog />}
            />
 

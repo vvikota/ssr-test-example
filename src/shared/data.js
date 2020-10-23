@@ -1,1 +1,1 @@
- export const data = ['catalog', 'reviews', 'contact'];
+ export const data = ['news', 'catalog', 'reviews', 'contact',];
